@@ -7,7 +7,6 @@ var webpack = require('webpack');
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
-var SOURCE_MAP = false;
 
 module.exports = {
     entry: {
@@ -96,7 +95,7 @@ module.exports = {
         ]
     },
 
-    devtool: SOURCE_MAP ? '#source-map' : false,
+    devtool: false,
 
     node: {
         net: 'empty',
