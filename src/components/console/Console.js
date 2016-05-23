@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import SPS from 'simple-pub-sub';
 import classnames from 'classnames';
 
-import './console.scss';
 
 class Console extends Component {
     constructor (props, context) {
@@ -30,6 +29,11 @@ class Console extends Component {
         const me = this;
         ['log', 'error', 'warn', 'debug', 'info'].forEach((item) => {
             console[item] = function () {
+                // React.js的警告信息
+                // if(arguments[0].startsWith('Warning: ')) {
+                //     return;
+                // }
+
                 // 执行原来的console
                 this.wc[item].apply(this.wc, Array.prototype.slice.call(arguments));
                 me.log(arguments, item);
@@ -91,11 +95,19 @@ class Console extends Component {
 
     render() {
         return (
-            <div class={this.getClassNames()}>
-                <div class="de-log">
+            <div className={this.getClassNames()}>
+                <div className="de-log">
+                    <div style={{
+                        color: '#6a5acd',
+                        margin: 0,
+                        padding: '6px 8px',
+                        lineHeight: 1.3,
+                        borderBottom: '1px solid #eee',
+                        wordBreak: 'break-word'
+                    }}>欢迎使用 mdebug，这是console面板。</div>
                     {this.state.logs.map((item) => {
                         return (
-                            <pre class={"de-item de-item-" + item.type}>{item.msg}</pre>
+                            <pre className={"de-item de-item-" + item.type}>{item.msg}</pre>
                         );
                     })}
                 </div>

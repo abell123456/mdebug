@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import SPS from 'simple-pub-sub';
 import classnames from 'classnames';
 
-import timing from 'timing.js';
-
-import './timeline.scss';
+import timing from './timing';
 
 class Timeline extends Component {
     constructor(props, context) {
@@ -12,33 +10,33 @@ class Timeline extends Component {
 
         this.state = {
             isShow: false,
-            timeline: []
+            timelines: []
         };
-
-        this.makeNetwork();
 
         SPS.on('tabToggle', (curTab) => {
             this.setState({
                 isShow: curTab === 'timeline'
             });
         });
+
+        this.makeNetwork();
     }
 
     initTimeline() {
-        const data = timing.printSimpleTable();
+        const timingData = timing.printSimpleTable();
 
         const ary = [];
 
-        for (let key in data) {
-            if(data.hasOwnProperty(key)) {
+        for (let key in timingData) {
+            if(timingData.hasOwnProperty(key)) {
                 ary.push({
-                    msg: key + ': ' + Math.round(data[key])
+                    msg: key + ': ' + Math.round(timingData[key])
                 });
             }
         }
 
         this.setState({
-            timeline: ary
+            timelines: ary
         });
     }
 
@@ -69,6 +67,12 @@ class Timeline extends Component {
     }
 
     makeNetwork() {
+        if(this._loaded) {
+            return;
+        }
+
+        this._loaded = true;
+
         window.addEventListener('load', () => {
             this.initTimeline();
 
@@ -111,10 +115,18 @@ class Timeline extends Component {
 
     render() {
         return (
-            <div class={this.getClassNames()}>
-                <div class="de-log">
-                    {this.state.timeline.map((item) => {
-                        return (<p class="de-item de-item-log">{item.msg}</p>);
+            <div className={this.getClassNames()}>
+                <div style={{
+                    color: '#6a5acd',
+                    margin: 0,
+                    padding: '6px 8px',
+                    lineHeight: 1.3,
+                    borderBottom: '1px solid #eee',
+                    wordBreak: 'break-word'
+                }}>欢迎使用 mdebug，这是Timeline面板。</div>
+                <div className="de-log">
+                    {this.state.timelines.map((item) => {
+                        return (<p className="de-item de-item-log">{item.msg}</p>);
                     })}
                 </div>
             </div>

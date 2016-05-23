@@ -2,6 +2,7 @@ var path = require('path');
 
 var projectRoot = path.resolve(__dirname, '../');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 // whether to generate source map for production files.
@@ -60,16 +61,16 @@ module.exports = {
             }
         }, {
             test: /\.css$/,
-            loader: 'style!css'
+            loader: ExtractTextPlugin.extract('style!css')
         }, {
             test: /\.less$/,
-            loader: 'css!less'
+            loader: ExtractTextPlugin.extract('css!less')
         }, {
             test: /\.s(a|c)ss$/,
-            loader: 'css!sass'
+            loader: ExtractTextPlugin.extract('css!sass')
         }, {
             test: /\.styl(us)?$/,
-            loader: 'css!stylus'
+            loader: ExtractTextPlugin.extract('css!stylus')
         }]
     },
 
@@ -82,7 +83,7 @@ module.exports = {
     },
 
     babel: {
-        cacheDirectory: false,
+        cacheDirectory: true,
         presets: [
             "es2015", "react", "stage-2"
         ],

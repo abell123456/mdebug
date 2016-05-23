@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SPS from 'simple-pub-sub';
 
 // 导入各个子组件
 import Header from '../header/Header';
@@ -21,11 +22,15 @@ class Container extends Component {
                 <div className='de-content'>
                     <Console />
                     <Resources />
-                    <Timeline />
                     <Xhr />
+                    <Timeline />
                 </div>
             </div>
         );
+    }
+
+    componentDidMount() {
+        SPS.trigger('tabToggle', 'console');
     }
 };
 

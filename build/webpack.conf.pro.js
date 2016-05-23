@@ -1,7 +1,7 @@
 var baseConf = require('./webpack.conf.base');
 var merge = require('webpack-merge');
 var webpack = require('webpack');
-
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = merge(baseConf, {
     plugins: [
@@ -12,10 +12,14 @@ module.exports = merge(baseConf, {
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
+            compressor: {
+                warnings: false,
+            },
         }),
-        new webpack.optimize.OccurenceOrderPlugin()
+        new webpack.optimize.OccurenceOrderPlugin(),
+        // extract css into its own file
+        new ExtractTextPlugin('[name].css', {
+            allChunks: true
+        })
     ]
 });
