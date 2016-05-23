@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<div>11</div>, document.querySelector('body'));
+import Container from './components/container/Container';
+
+ReactDOM.render(<Container />, document.querySelector('body'));

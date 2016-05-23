@@ -1,0 +1,29 @@
+.de-panel {
+    line-height: 1.6;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    position: fixed;
+    min-height: 80%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    background-color: #efeff4;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s,-webkit-transform 0.3s;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+.de-content {
+   background-color: #fff;
+   overflow-x: auto;
+   overflow-y: auto;
+   position: absolute;
+   top: 40px;
+   left: 0;
+   right: 0;
+   bottom: 40px;
+   -webkit-overflow-scrolling: touch
+}
