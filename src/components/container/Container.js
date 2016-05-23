@@ -8,6 +8,8 @@ import Resources from '../resources/Resources';
 import Timeline from '../timeline/Timeline';
 import Xhr from '../xhr/Xhr';
 
+import Toobar from '../toolbar/Toolbar';
+
 import './container.scss';
 
 class Container extends Component {
@@ -25,6 +27,7 @@ class Container extends Component {
                     <Xhr />
                     <Timeline />
                 </div>
+                <Toobar />
             </div>
         );
     }

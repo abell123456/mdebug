@@ -96,15 +96,15 @@ class Console extends Component {
     render() {
         return (
             <div className={this.getClassNames()}>
+                <div style={{
+                    color: '#6a5acd',
+                    margin: 0,
+                    padding: '6px 8px',
+                    lineHeight: 1.3,
+                    borderBottom: '1px solid #eee',
+                    wordBreak: 'break-word'
+                }}>欢迎使用 mdebug，这是console面板。</div>
                 <div className="de-log">
-                    <div style={{
-                        color: '#6a5acd',
-                        margin: 0,
-                        padding: '6px 8px',
-                        lineHeight: 1.3,
-                        borderBottom: '1px solid #eee',
-                        wordBreak: 'break-word'
-                    }}>欢迎使用 mdebug，这是console面板。</div>
                     {this.state.logs.map((item) => {
                         return (
                             <pre className={"de-item de-item-" + item.type}>{item.msg}</pre>

@@ -10506,19 +10506,19 @@
 	                { className: this.getClassNames() },
 	                _react2.default.createElement(
 	                    'div',
+	                    { style: {
+	                            color: '#6a5acd',
+	                            margin: 0,
+	                            padding: '6px 8px',
+	                            lineHeight: 1.3,
+	                            borderBottom: '1px solid #eee',
+	                            wordBreak: 'break-word'
+	                        } },
+	                    '欢迎使用 mdebug，这是console面板。'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
 	                    { className: 'de-log' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { style: {
-	                                color: '#6a5acd',
-	                                margin: 0,
-	                                padding: '6px 8px',
-	                                lineHeight: 1.3,
-	                                borderBottom: '1px solid #eee',
-	                                wordBreak: 'break-word'
-	                            } },
-	                        '欢迎使用 mdebug，这是console面板。'
-	                    ),
 	                    this.state.logs.map(function (item) {
 	                        return _react2.default.createElement(
 	                            'pre',
@@ -10576,6 +10576,10 @@
 
 	var _Xhr2 = _interopRequireDefault(_Xhr);
 
+	var _Toolbar = __webpack_require__(175);
+
+	var _Toolbar2 = _interopRequireDefault(_Toolbar);
+
 	__webpack_require__(94);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -10612,7 +10616,8 @@
 	                    _react2.default.createElement(_Resources2.default, null),
 	                    _react2.default.createElement(_Xhr2.default, null),
 	                    _react2.default.createElement(_Timeline2.default, null)
-	                )
+	                ),
+	                _react2.default.createElement(_Toolbar2.default, null)
 	            );
 	        }
 	    }, {
@@ -11249,77 +11254,81 @@
 	                        } },
 	                    '欢迎使用 mdebug，这是XHR面板。'
 	                ),
-	                this.state.xhrs.map(function (item) {
-	                    return _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        _react2.default.createElement(
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'de-log' },
+	                    this.state.xhrs.map(function (item) {
+	                        return _react2.default.createElement(
 	                            'div',
-	                            { className: 'at-item at-item-log' },
+	                            null,
 	                            _react2.default.createElement(
 	                                'div',
-	                                { className: 'at-url' },
-	                                _react2.default.createElement('div', null),
+	                                { className: 'at-item at-item-log' },
 	                                _react2.default.createElement(
-	                                    'span',
-	                                    null,
-	                                    '[Request Url]'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'at-sub-dt' },
-	                                _react2.default.createElement(
-	                                    'span',
-	                                    null,
-	                                    item.method
+	                                    'div',
+	                                    { className: 'at-url' },
+	                                    _react2.default.createElement('div', null),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        '[Request Url]'
+	                                    )
 	                                ),
-	                                ': ',
-	                                item.rqsUrl
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'at-item at-item-log' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'at-url' },
 	                                _react2.default.createElement(
-	                                    'span',
-	                                    null,
-	                                    '[Response Url]'
+	                                    'div',
+	                                    { className: 'at-sub-dt' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        item.method
+	                                    ),
+	                                    ': ',
+	                                    item.rqsUrl
 	                                )
 	                            ),
 	                            _react2.default.createElement(
 	                                'div',
-	                                { className: 'at-sub-dt' },
-	                                item.rspUrl
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'at-item at-item-log' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'at-url' },
+	                                { className: 'at-item at-item-log' },
 	                                _react2.default.createElement(
-	                                    'span',
-	                                    null,
-	                                    '[Response Data]'
+	                                    'div',
+	                                    { className: 'at-url' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        '[Response Url]'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'at-sub-dt' },
+	                                    item.rspUrl
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                'pre',
-	                                { className: 'at-json' },
+	                                'div',
+	                                { className: 'at-item at-item-log' },
 	                                _react2.default.createElement(
-	                                    'code',
-	                                    null,
-	                                    item.json
+	                                    'div',
+	                                    { className: 'at-url' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        '[Response Data]'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'pre',
+	                                    { className: 'at-json' },
+	                                    _react2.default.createElement(
+	                                        'code',
+	                                        null,
+	                                        item.json
+	                                    )
 	                                )
 	                            )
-	                        )
-	                    );
-	                })
+	                        );
+	                    })
+	                )
 	            );
 	        }
 	    }]);
@@ -21182,6 +21191,64 @@
 		return module;
 	}
 
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(16);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Toolbar = function (_Component) {
+	    _inherits(Toolbar, _Component);
+
+	    function Toolbar(props, context) {
+	        _classCallCheck(this, Toolbar);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Toolbar).call(this, props, context));
+	    }
+
+	    _createClass(Toolbar, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'de-toolbar' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { className: 'de-tool de-clear' },
+	                    'Clear'
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { className: 'de-tool de-tool-last de-hide' },
+	                    'Hide'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Toolbar;
+	}(_react.Component);
+
+	exports.default = Toolbar;
 
 /***/ }
 /******/ ]);

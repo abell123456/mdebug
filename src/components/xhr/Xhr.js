@@ -131,24 +131,26 @@ class Xhr extends Component {
                     borderBottom: '1px solid #eee',
                     wordBreak: 'break-word'
                 }}>欢迎使用 mdebug，这是XHR面板。</div>
-                {this.state.xhrs.map((item) => {
-                    return (
-                        <div>
-                            <div className="at-item at-item-log">
-                                <div className="at-url"><div></div><span>[Request Url]</span></div>
-                                <div className="at-sub-dt"><span>{item.method}</span>: {item.rqsUrl}</div>
+                <div className='de-log'>
+                    {this.state.xhrs.map((item) => {
+                        return (
+                            <div>
+                                <div className="at-item at-item-log">
+                                    <div className="at-url"><div></div><span>[Request Url]</span></div>
+                                    <div className="at-sub-dt"><span>{item.method}</span>: {item.rqsUrl}</div>
+                                </div>
+                                <div className="at-item at-item-log">
+                                    <div className="at-url"><span>[Response Url]</span></div>
+                                   <div className="at-sub-dt">{item.rspUrl}</div>
+                                </div>
+                                <div className="at-item at-item-log">
+                                    <div className="at-url"><span>[Response Data]</span></div>
+                                    <pre className="at-json"><code>{item.json}</code></pre>
+                                </div>
                             </div>
-                            <div className="at-item at-item-log">
-                                <div className="at-url"><span>[Response Url]</span></div>
-                               <div className="at-sub-dt">{item.rspUrl}</div>
-                            </div>
-                            <div className="at-item at-item-log">
-                                <div className="at-url"><span>[Response Data]</span></div>
-                                <pre className="at-json"><code>{item.json}</code></pre>
-                            </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
         );
     }
